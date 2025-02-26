@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Instagram, Facebook, Twitter, ArrowRight, ShoppingBag, Calendar } from 'lucide-react';
+import { Instagram, Facebook, Twitter } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -39,10 +39,7 @@ export function Home() {
               to="/collections" 
               className="inline-block bg-accent-gold hover:bg-primary-dark text-white px-12 py-4 rounded-full transition duration-300 text-lg mt-8"
             >
-              <div className="flex items-center gap-2">
-                <ShoppingBag size={20} />
-                Explore Collections
-              </div>
+              Explore Collections
             </Link>
           </div>
         </div>
@@ -93,10 +90,7 @@ export function Home() {
             to="/custom" 
             className="inline-block bg-accent-gold hover:bg-primary-dark text-white px-6 py-2 rounded-full transition duration-300"
           >
-            <div className="flex items-center gap-2">
-              <Calendar size={20} />
-              Book a Consultation
-            </div>
+            Book a Consultation
           </Link>
         </div>
       </section>

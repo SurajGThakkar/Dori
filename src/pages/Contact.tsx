@@ -52,9 +52,8 @@ export function Contact() {
           </p>
           <a
             href="https://wa.me/918369464126"
-            className="inline-block bg-accent-gold hover:bg-primary-dark text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-2"
+            className="inline-block bg-accent-gold hover:bg-primary-dark text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
           >
-            <MessageCircle size={18} />
             Schedule Now
           </a>
         </div>

@@ -123,16 +123,13 @@ export function Custom() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-serif mb-8">Ready to Start Your Custom Journey?</h2>
           <div className="flex flex-col md:flex-row justify-center gap-6 max-w-2xl mx-auto">
-            <a href="tel:+1234567890" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
-              <Phone size={18} />
+            <a href="tel:+1234567890" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
               Call Now
             </a>
-            <a href="https://wa.me/1234567890" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
-              <MessageCircle size={18} />
+            <a href="https://wa.me/1234567890" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
               WhatsApp
             </a>
-            <a href="mailto:contact@dori.com" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center gap-2">
-              <Mail size={18} />
+            <a href="mailto:contact@dori.com" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
               Email Us
             </a>
           </div>
