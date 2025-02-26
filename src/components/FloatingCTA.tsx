@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 export function FloatingCTA() {
   const [isVisible, setIsVisible] = useState(true);
@@ -43,21 +43,34 @@ export function FloatingCTA() {
     }
   };
 
-  return (
+  const ctaLink = getCtaLink();
+  const isExternalLink = ctaLink.startsWith('http');
+  const commonClassNames = `
+    fixed bottom-6 left-1/2 -translate-x-1/2 z-40
+    md:bottom-8 md:left-auto md:right-8 md:translate-x-0
+    bg-accent-gold hover:bg-accent-rose text-white
+    px-8 py-3 rounded-full shadow-lg
+    transition-all duration-500 transform
+    hover:scale-105 hover:shadow-xl
+    backdrop-blur-sm bg-opacity-90
+    ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}
+  `;
+
+  return isExternalLink ? (
     <a
-      href={getCtaLink()}
-      className={`
-        fixed bottom-6 left-1/2 -translate-x-1/2 z-40
-        md:bottom-8 md:left-auto md:right-8 md:translate-x-0
-        bg-accent-gold hover:bg-accent-rose text-white
-        px-8 py-3 rounded-full shadow-lg
-        transition-all duration-500 transform
-        hover:scale-105 hover:shadow-xl
-        backdrop-blur-sm bg-opacity-90
-        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}
-      `}
+      href={ctaLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={commonClassNames}
     >
       {getCtaText()}
     </a>
+  ) : (
+    <Link
+      to={ctaLink}
+      className={commonClassNames}
+    >
+      {getCtaText()}
+    </Link>
   );
 }
