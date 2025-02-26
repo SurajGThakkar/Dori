@@ -7,7 +7,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/Dori/',
+  base: '/',
   server: {
     host: true, // Expose to all network interfaces
   },
