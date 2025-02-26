@@ -52,8 +52,9 @@ export function Contact() {
           </p>
           <a
             href="https://wa.me/918369464126"
-            className="inline-block bg-accent-gold hover:bg-primary-dark text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
+            className="inline-block bg-accent-gold hover:bg-primary-dark text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-2"
           >
+            <MessageCircle size={18} />
             Schedule Now
           </a>
         </div>
@@ -102,9 +103,9 @@ export function Contact() {
                 <Clock size={24} className="text-accent-gold flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-serif text-xl mb-4">Business Hours</h3>
-                  <div className="space-y-2">
+                  <div className="space-y-4">
                     {businessHours.map((schedule, index) => (
-                      <div key={index} className="flex justify-between">
+                      <div key={index} className="flex justify-between gap-16">
                         <span className="text-gray-600">{schedule.day}</span>
                         <span className="font-medium">{schedule.hours}</span>
                       </div>
@@ -112,13 +113,13 @@ export function Contact() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-6">
                 <MapPin size={24} className="text-accent-gold flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-serif text-xl mb-2">Our Location</h3>
+                  <h3 className="font-serif text-lg mb-2">Our Location</h3>
                   <p className="text-gray-600">
                     123 Fashion Street, Design District<br />
-                    Mumbai, Maharashtra 400001
+                    Mumbai, Maharashtra 400080
                   </p>
                 </div>
               </div>

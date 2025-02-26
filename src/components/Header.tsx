@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowLeft } from 'lucide-react';
+import { Menu, X, ArrowLeft, Home, ShoppingBag, Palette, Info, Phone, ArrowRight } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export function Header() {
@@ -60,7 +60,10 @@ export function Header() {
             to={location.pathname === '/custom' ? '/contact' : '/custom'}
             className="hidden md:block bg-accent-gold hover:bg-accent-rose text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
           >
-            {getCtaText()}
+            <div className="flex items-center gap-2">
+              {getCtaText()}
+              <ArrowRight size={18} />
+            </div>
           </Link>
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
@@ -79,7 +82,10 @@ export function Header() {
                 to="/" 
                 className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
               >
-                Home
+                <div className="flex items-center gap-2">
+                  <Home size={18} />
+                  Home
+                </div>
               </Link>
             </li>
             <li>
@@ -87,7 +93,10 @@ export function Header() {
                 to="/collections" 
                 className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
               >
-                Collections
+                <div className="flex items-center gap-2">
+                  <ShoppingBag size={18} />
+                  Collections
+                </div>
               </Link>
             </li>
             <li>
@@ -95,7 +104,10 @@ export function Header() {
                 to="/custom" 
                 className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
               >
-                Customization
+                <div className="flex items-center gap-2">
+                  <Palette size={18} />
+                  Customization
+                </div>
               </Link>
             </li>
             <li>
@@ -103,7 +115,10 @@ export function Header() {
                 to="/about" 
                 className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
               >
-                About Us
+                <div className="flex items-center gap-2">
+                  <Info size={18} />
+                  About Us
+                </div>
               </Link>
             </li>
             <li>
@@ -111,7 +126,10 @@ export function Header() {
                 to="/contact" 
                 className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
               >
-                Contact
+                <div className="flex items-center gap-2">
+                  <Phone size={18} />
+                  Contact
+                </div>
               </Link>
             </li>
           </ul>

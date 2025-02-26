@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Phone, Mail, Instagram, Facebook, Twitter, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function Footer() {
@@ -66,7 +66,10 @@ export function Footer() {
               <button 
                 className="bg-accent-gold hover:bg-accent-rose text-white px-8 rounded-r-full transition-all duration-500 transform hover:scale-105 focus:ring-2 focus:ring-accent-gold focus:ring-offset-2"
               >
-                Subscribe
+                <div className="flex items-center gap-2">
+                  <Send size={16} />
+                  Subscribe
+                </div>
               </button>
             </div>
           </div>
