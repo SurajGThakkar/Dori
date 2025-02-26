@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { FloatingCTA } from './components/FloatingCTA';
 import { Home } from './pages/Home';
 import { Collections } from './pages/Collections';
 import { Custom } from './pages/Custom.tsx';
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <FloatingCTA />
       <Footer />
     </div>
   );
