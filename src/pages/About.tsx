@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Section, Card } from '../components/ui';
 
 const teamMembers = [
   {
@@ -76,20 +77,19 @@ export function About() {
   return (
     <div className="min-h-screen bg-white pt-16">
       {/* Hero Section */}
-      <section className="py-12 bg-secondary-light">
-        <div className="container mx-auto px-4 text-center">
+      <Section variant="light" className="py-12">
+        <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-4">About Dori</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Crafting timeless elegance through traditional artistry and modern design.
             We believe in preserving heritage while embracing contemporary fashion.
           </p>
         </div>
-      </section>
+      </Section>
 
       {/* Our Story */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <Section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl font-serif mb-4">Our Journey</h2>
               <p className="text-gray-600 mb-4">
@@ -111,44 +111,40 @@ export function About() {
               />
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Ethos & Sustainability */}
-      <section className="py-16 bg-secondary-light">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">What We Stand For</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-xl font-serif mb-3">Craftsmanship</h3>
-              <p className="text-gray-600">
-                Every piece is crafted with meticulous attention to detail, preserving traditional
-                techniques passed down through generations.
-              </p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-xl font-serif mb-3">Sustainability</h3>
-              <p className="text-gray-600">
-                We use eco-friendly materials and processes, minimizing our environmental impact
-                while creating beautiful, lasting pieces.
-              </p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-xl font-serif mb-3">Ethical Sourcing</h3>
-              <p className="text-gray-600">
-                We ensure fair wages and safe working conditions for all our artisans,
-                maintaining transparent supply chains.
-              </p>
-            </div>
-          </div>
+      <Section variant="light">
+        <Section.Header title="What We Stand For" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card className="p-6">
+            <h3 className="text-xl font-serif mb-3">Craftsmanship</h3>
+            <p className="text-gray-600">
+              Every piece is crafted with meticulous attention to detail, preserving traditional
+              techniques passed down through generations.
+            </p>
+          </Card>
+          <Card className="p-6">
+            <h3 className="text-xl font-serif mb-3">Sustainability</h3>
+            <p className="text-gray-600">
+              We use eco-friendly materials and processes, minimizing our environmental impact
+              while creating beautiful, lasting pieces.
+            </p>
+          </Card>
+          <Card className="p-6">
+            <h3 className="text-xl font-serif mb-3">Ethical Sourcing</h3>
+            <p className="text-gray-600">
+              We ensure fair wages and safe working conditions for all our artisans,
+              maintaining transparent supply chains.
+            </p>
+          </Card>
         </div>
-      </section>
+      </Section>
 
       {/* Meet the Team */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <Section>
+        <Section.Header title="Our Team" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
                 <div className="relative w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden">
@@ -164,58 +160,60 @@ export function About() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* Legal Information */}
-      <section className="py-16 bg-secondary-light">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">Legal Information</h2>
-          <div className="max-w-2xl mx-auto space-y-4">
-            {legalSections.map((section, index) => (
-              <div key={index} className="border rounded-lg bg-white">
-                <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center"
-                  onClick={() => setOpenLegal(openLegal === index ? null : index)}
-                >
-                  <span className="font-semibold">{section.title}</span>
-                  {openLegal === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </button>
-                {openLegal === index && (
-                  <div className="px-6 pb-4">
-                    <p className="text-gray-600 whitespace-pre-line">{section.content}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+      <Section variant="light">
+        <Section.Header title="Legal Information" />
+        <div className="max-w-2xl mx-auto space-y-4">
+          {legalSections.map((section, index) => (
+            <Card key={index}>
+              <button
+                className="w-full px-6 py-4 text-left flex justify-between items-center"
+                onClick={() => setOpenLegal(openLegal === index ? null : index)}
+              >
+                <span className="font-semibold">{section.title}</span>
+                {openLegal === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+              </button>
+              {openLegal === index && (
+                <div className="px-6 pb-4 animate-fadeIn">
+                  <p className="text-gray-600 whitespace-pre-line">{section.content}</p>
+                </div>
+              )}
+            </Card>
+          ))}
         </div>
-      </section>
+      </Section>
 
       {/* FAQs */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">Frequently Asked Questions</h2>
-          <div className="max-w-2xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border rounded-lg">
-                <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center"
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                >
-                  <span className="font-semibold">{faq.question}</span>
+      <Section>
+        <Section.Header title="Frequently Asked Questions" />
+        <div className="max-w-2xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <Card key={index} className="hover:border-accent-gold transition-colors duration-300 shadow-sm hover:shadow-md">
+              <button
+                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50 rounded-lg"
+                onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                aria-expanded={openFaq === index}
+                aria-controls={`faq-answer-${index}`}
+              >
+                <span className="font-semibold">{faq.question}</span>
+                <span className="text-accent-gold transition-transform duration-300 transform">
                   {openFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </button>
-                {openFaq === index && (
-                  <div className="px-6 pb-4">
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                </span>
+              </button>
+              {openFaq === index && (
+                <div 
+                  id={`faq-answer-${index}`}
+                  className="px-6 pb-4 animate-fadeIn"
+                >
+                  <p className="text-gray-600">{faq.answer}</p>
+                </div>
+              )}
+            </Card>
+          ))}
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

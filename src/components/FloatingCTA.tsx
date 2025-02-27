@@ -9,6 +9,7 @@ export function FloatingCTA() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      // Show CTA when scrolling up or near the top of the page
       setIsVisible(currentScrollY < lastScrollY || currentScrollY < 100);
       setLastScrollY(currentScrollY);
     };
@@ -52,8 +53,9 @@ export function FloatingCTA() {
     px-8 py-3 rounded-full shadow-lg
     transition-all duration-500 transform
     hover:scale-105 hover:shadow-xl
-    backdrop-blur-sm bg-opacity-90
-    ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0'}
+    backdrop-blur-sm bg-opacity-90 font-medium
+    focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2
+    ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0 pointer-events-none'}
   `;
 
   return isExternalLink ? (
@@ -62,6 +64,7 @@ export function FloatingCTA() {
       target="_blank"
       rel="noopener noreferrer"
       className={commonClassNames}
+      aria-label={getCtaText()}
     >
       {getCtaText()}
     </a>
@@ -69,6 +72,7 @@ export function FloatingCTA() {
     <Link
       to={ctaLink}
       className={commonClassNames}
+      aria-label={getCtaText()}
     >
       {getCtaText()}
     </Link>

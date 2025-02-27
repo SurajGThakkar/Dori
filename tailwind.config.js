@@ -37,6 +37,7 @@ export default {
       boxShadow: {
         'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       },
       transitionDuration: {
         '300': '300ms',
@@ -45,6 +46,25 @@ export default {
       backdropBlur: {
         'md': '12px',
         'lg': '16px',
+      },
+      animation: {
+        'fadeIn': 'fadeIn 0.3s ease-in-out',
+        'slideUp': 'slideUp 0.4s ease-out',
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        pulse: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '.7' },
+        },
       },
     },
   },

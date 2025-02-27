@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
@@ -7,6 +7,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const showBackButton = location.pathname !== '/';
 
   useEffect(() => {
@@ -16,6 +18,29 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Handle clicks outside the menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
 
   const handleBackClick = () => {
     setIsMenuOpen(false);
@@ -42,7 +67,8 @@ export function Header() {
           {showBackButton && (
             <button 
               onClick={handleBackClick} 
-              className="text-primary-dark hover:text-accent-gold transition-all duration-300 transform hover:scale-110"
+              className="text-primary-dark hover:text-accent-gold transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50 rounded-full p-1"
+              aria-label="Go back"
             >
               <ArrowLeft size={20} />
             </button>
@@ -55,29 +81,71 @@ export function Header() {
           </Link>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6 font-poppins">
+            <Link 
+              to="/" 
+              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+            >
+              Home
+            </Link>
+            <Link 
+              to="/collections" 
+              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+            >
+              Collections
+            </Link>
+            <Link 
+              to="/custom" 
+              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+            >
+              Customization
+            </Link>
+            <Link 
+              to="/about" 
+              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+            >
+              About Us
+            </Link>
+            <Link 
+              to="/contact" 
+              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+            >
+              Contact
+            </Link>
+          </div>
+          
           <Link
             to={location.pathname === '/custom' ? '/contact' : '/custom'}
-            className="hidden md:block bg-accent-gold hover:bg-accent-rose text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+            className="hidden md:block bg-accent-gold hover:bg-accent-rose text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50"
           >
             {getCtaText()}
           </Link>
           <button 
+            ref={buttonRef}
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="text-primary-dark hover:text-accent-gold transition-all duration-300 transform hover:rotate-180"
+            className="text-primary-dark hover:text-accent-gold transition-all duration-300 transform hover:rotate-180 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50 rounded-full p-1"
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
       
+      {/* Mobile Menu - Only visible on small screens */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 backdrop-blur-lg bg-white/90 shadow-lg">
+        <div 
+          ref={menuRef}
+          className="absolute top-full left-0 right-0 backdrop-blur-lg bg-white/90 shadow-lg animate-fadeIn md:hidden"
+        >
           <ul className="container mx-auto px-4 py-6 space-y-4 font-poppins">
             <li>
               <Link 
                 to="/" 
-                className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
+                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
@@ -85,7 +153,8 @@ export function Header() {
             <li>
               <Link 
                 to="/collections" 
-                className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
+                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Collections
               </Link>
@@ -93,7 +162,8 @@ export function Header() {
             <li>
               <Link 
                 to="/custom" 
-                className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
+                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Customization
               </Link>
@@ -101,7 +171,8 @@ export function Header() {
             <li>
               <Link 
                 to="/about" 
-                className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
+                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
+                onClick={() => setIsMenuOpen(false)}
               >
                 About Us
               </Link>
@@ -109,7 +180,8 @@ export function Header() {
             <li>
               <Link 
                 to="/contact" 
-                className="block text-base text-primary-dark hover:text-accent-rose transition-all duration-300 hover:translate-x-2"
+                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
+                onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>

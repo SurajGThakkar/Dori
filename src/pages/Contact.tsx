@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, ChevronDown, ChevronUp, MessageCircle } from 'lucide-react';
+import { Section, Card } from '../components/ui';
 
 const faqs = [
   {
@@ -32,71 +33,67 @@ export function Contact() {
   return (
     <div className="min-h-screen bg-white pt-16">
       {/* Hero Section */}
-      <section className="py-12 bg-secondary-light">
-        <div className="container mx-auto px-4 text-center">
+      <Section variant="light" className="py-12">
+        <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-4">Get in Touch with Us</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We're here to help bring your vision to life. Book a consultation or reach out to us directly
             for any questions about our custom design services.
           </p>
         </div>
-      </section>
+      </Section>
 
       {/* Booking Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-serif mb-4">Book a Consultation</h2>
-          <p className="mb-8 text-gray-600 max-w-2xl mx-auto">
-            Choose between virtual or in-person consultations. Our expert designers will guide you through
-            the customization process and help create your perfect outfit.
-          </p>
+      <Section>
+        <Section.Header
+          title="Book a Consultation"
+          description="Choose between virtual or in-person consultations. Our expert designers will guide you through the customization process and help create your perfect outfit."
+        />
+        <div className="text-center">
           <a
             href="https://wa.me/918369464126"
-            className="inline-block bg-accent-gold hover:bg-primary-dark text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
+            className="inline-block bg-accent-gold hover:bg-accent-rose text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 font-medium"
           >
             Schedule Now
           </a>
         </div>
-      </section>
+      </Section>
 
       {/* Direct Contact Options */}
-      <section className="py-16 bg-secondary-light">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">Contact Us Directly</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <a
-              href="https://wa.me/918369464126"
-              className="flex flex-col items-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <MessageCircle size={32} className="text-accent-gold mb-4" />
-              <h3 className="font-serif text-xl mb-2">WhatsApp</h3>
-              <p className="text-gray-600 text-center">Chat with us instantly</p>
-            </a>
-            <a
-              href="tel:+918369464126"
-              className="flex flex-col items-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <Phone size={32} className="text-accent-gold mb-4" />
-              <h3 className="font-serif text-xl mb-2">Call Us</h3>
-              <p className="text-gray-600 text-center">+91 836 946 4126</p>
-            </a>
-            <a
-              href="mailto:contact@dori.com"
-              className="flex flex-col items-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-            >
-              <Mail size={32} className="text-accent-gold mb-4" />
-              <h3 className="font-serif text-xl mb-2">Email</h3>
-              <p className="text-gray-600 text-center">contact@dori.com</p>
-            </a>
-          </div>
+      <Section variant="light">
+        <Section.Header title="Contact Us Directly" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+          <a
+            href="https://wa.me/918369464126"
+            className="flex flex-col items-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <MessageCircle size={32} className="text-accent-gold mb-4" />
+            <h3 className="font-serif text-xl mb-2">WhatsApp</h3>
+            <p className="text-gray-600 text-center">Chat with us instantly</p>
+          </a>
+          <a
+            href="tel:+918369464126"
+            className="flex flex-col items-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <Phone size={32} className="text-accent-gold mb-4" />
+            <h3 className="font-serif text-xl mb-2">Call Us</h3>
+            <p className="text-gray-600 text-center">+91 836 946 4126</p>
+          </a>
+          <a
+            href="mailto:contact@dori.com"
+            className="flex flex-col items-center p-8 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
+            <Mail size={32} className="text-accent-gold mb-4" />
+            <h3 className="font-serif text-xl mb-2">Email</h3>
+            <p className="text-gray-600 text-center">contact@dori.com</p>
+          </a>
         </div>
-      </section>
+      </Section>
 
       {/* Location & Availability */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">Visit Our Studio</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <Section>
+        <Section.Header title="Visit Our Studio" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <Clock size={24} className="text-accent-gold flex-shrink-0 mt-1" />
@@ -135,33 +132,37 @@ export function Contact() {
               />
             </div>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* FAQs Section */}
-      <section className="py-16 bg-secondary-light">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">Frequently Asked Questions</h2>
-          <div className="max-w-2xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border rounded-lg bg-white">
-                <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center"
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                >
-                  <span className="font-semibold">{faq.question}</span>
+      <Section variant="light">
+        <Section.Header title="Frequently Asked Questions" />
+        <div className="max-w-2xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <Card key={index} className="hover:border-accent-gold transition-colors duration-300 shadow-sm hover:shadow-md">
+              <button
+                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50 rounded-lg"
+                onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                aria-expanded={openFaq === index}
+                aria-controls={`faq-answer-${index}`}
+              >
+                <span className="font-semibold">{faq.question}</span>
+                <span className="text-accent-gold transition-transform duration-300 transform">
                   {openFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </button>
-                {openFaq === index && (
-                  <div className="px-6 pb-4">
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                </span>
+              </button>
+              {openFaq === index && (
+                <div 
+                  id={`faq-answer-${index}`}
+                  className="px-6 pb-4 animate-fadeIn"
+                >
+                  <p className="text-gray-600">{faq.answer}</p>
+                </div>
+              )}
+            </Card>
+          ))}
         </div>
-      </section>
+      </Section>
     </div>
   );
 }

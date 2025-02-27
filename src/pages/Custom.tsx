@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Phone, Mail, MessageCircle, Upload, ChevronDown, ChevronUp } from 'lucide-react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Section, Card, Button, ExternalLinkButton } from '../components/ui';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -73,77 +74,78 @@ export function Custom() {
 
   return (
     <div className="min-h-screen bg-white pt-16">
-      <section className="py-12 bg-secondary-light">
-        <div className="container mx-auto px-6 text-center">
+      <Section variant="light" className="py-12">
+        <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-4">Create Your Own Outfit</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Experience the luxury of personalized fashion. Our expert designers will bring your vision to life
             with meticulous attention to detail and craftsmanship.
           </p>
         </div>
-      </section>
+      </Section>
 
       {/* Process Steps */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-              <div className="w-16 h-16 bg-accent-gold text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <Phone size={32} />
-              </div>
-              <h3 className="text-xl font-serif mb-2">Consultation Call</h3>
-              <p className="text-gray-600">
-                Discuss your preferences, fabrics, and measurements with our expert designers.
-              </p>
+      <Section>
+        <Section.Header 
+          title="Our Process" 
+          description="How we bring your vision to life in three simple steps"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <Card hoverable className="text-center p-6">
+            <div className="w-16 h-16 bg-accent-gold text-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <Phone size={32} />
             </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-              <div className="w-16 h-16 bg-accent-gold text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <Mail size={32} />
-              </div>
-              <h3 className="text-xl font-serif mb-2">Design Approval</h3>
-              <p className="text-gray-600">
-                Receive sketches and design references based on our discussion.
-              </p>
+            <h3 className="text-xl font-serif mb-2">Consultation Call</h3>
+            <p className="text-gray-600">
+              Discuss your preferences, fabrics, and measurements with our expert designers.
+            </p>
+          </Card>
+          <Card hoverable className="text-center p-6">
+            <div className="w-16 h-16 bg-accent-gold text-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <Mail size={32} />
             </div>
-            <div className="text-center p-6 bg-white rounded-lg shadow-lg">
-              <div className="w-16 h-16 bg-accent-gold text-white rounded-full flex items-center justify-center mx-auto mb-4">
-                <MessageCircle size={32} />
-              </div>
-              <h3 className="text-xl font-serif mb-2">Production & Delivery</h3>
-              <p className="text-gray-600">
-                Your custom outfit is crafted with care and delivered to your doorstep.
-              </p>
+            <h3 className="text-xl font-serif mb-2">Design Approval</h3>
+            <p className="text-gray-600">
+              Receive sketches and design references based on our discussion.
+            </p>
+          </Card>
+          <Card hoverable className="text-center p-6">
+            <div className="w-16 h-16 bg-accent-gold text-white rounded-full flex items-center justify-center mx-auto mb-4">
+              <MessageCircle size={32} />
             </div>
-          </div>
+            <h3 className="text-xl font-serif mb-2">Production & Delivery</h3>
+            <p className="text-gray-600">
+              Your custom outfit is crafted with care and delivered to your doorstep.
+            </p>
+          </Card>
         </div>
-      </section>
+      </Section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container mx-auto px-4 text-center">
+      <Section variant="dark">
+        <div className="text-center">
           <h2 className="text-3xl font-serif mb-8">Ready to Start Your Custom Journey?</h2>
           <div className="flex flex-col md:flex-row justify-center gap-6 max-w-2xl mx-auto">
-            <a href="tel:+1234567890" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            <ExternalLinkButton href="tel:+1234567890" variant="outline" size="lg">
               Call Now
-            </a>
-            <a href="https://wa.me/1234567890" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            </ExternalLinkButton>
+            <ExternalLinkButton href="https://wa.me/1234567890" variant="outline" size="lg">
               WhatsApp
-            </a>
-            <a href="mailto:contact@dori.com" className="bg-white text-primary px-10 py-4 rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+            </ExternalLinkButton>
+            <ExternalLinkButton href="mailto:contact@dori.com" variant="outline" size="lg">
               Email Us
-            </a>
+            </ExternalLinkButton>
           </div>
         </div>
-      </section>
+      </Section>
 
       {/* Upload Inspiration */}
-      <section className="py-16 bg-secondary-light">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-serif mb-4">Have an Inspiration?</h2>
-          <p className="mb-8 text-gray-600 max-w-2xl mx-auto">
-            Upload images for reference before your consultation. Our designers will use these
-            to better understand your vision.
-          </p>
+      <Section variant="light">
+        <div className="text-center">
+          <Section.Header 
+            title="Have an Inspiration?" 
+            description="Upload images for reference before your consultation. Our designers will use these to better understand your vision."
+          />
           <label className="inline-block">
             <input
               type="file"
@@ -152,102 +154,106 @@ export function Custom() {
               onChange={handleFileChange}
               className="hidden"
             />
-            <div className="bg-white px-8 py-3 rounded-full cursor-pointer hover:bg-gray-50 transition-colors inline-flex items-center gap-2">
+            <Button as="div" variant="secondary" className="cursor-pointer inline-flex items-center gap-2">
               <Upload size={20} />
               Upload Reference Images
-            </div>
+            </Button>
           </label>
           {selectedFiles && (
-            <div className="mt-4 text-left">
-              <p className="text-sm text-gray-600">Selected files:</p>
-              {Array.from(selectedFiles).map((file, index) => (
-                <p key={index} className="text-sm">{file.name}</p>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Previous Custom Creations */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">See Our Past Custom Designs</h2>
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={20}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{ delay: 3000 }}
-            pagination={{ clickable: true }}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 }
-            }}
-          >
-            {customCreations.map((creation) => (
-              <SwiperSlide key={creation.id}>
-                <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
-                  <img
-                    src={creation.image}
-                    alt={creation.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-secondary-overlay flex items-end">
-                    <div className="w-full p-4 bg-gradient-to-t from-black to-transparent">
-                      <h3 className="text-white text-xl font-serif font-medium">{creation.title}</h3>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-16 bg-secondary-light">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">Client Testimonials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="flex text-primary mb-2">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i}>★</span>
+            <Card className="mt-6 max-w-md mx-auto animate-fadeIn">
+              <Card.Body>
+                <p className="text-sm font-medium mb-2">Selected files:</p>
+                <div className="space-y-1">
+                  {Array.from(selectedFiles).map((file, index) => (
+                    <p key={index} className="text-sm text-gray-600">{file.name}</p>
                   ))}
                 </div>
-                <p className="mb-4">{testimonial.text}</p>
-                <p className="font-semibold">{testimonial.name}</p>
-              </div>
-            ))}
-          </div>
+              </Card.Body>
+            </Card>
+          )}
         </div>
-      </section>
+      </Section>
+
+      {/* Previous Custom Creations */}
+      <Section>
+        <Section.Header title="See Our Past Custom Designs" />
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{ delay: 3000 }}
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+          }}
+        >
+          {customCreations.map((creation) => (
+            <SwiperSlide key={creation.id}>
+              <Card>
+                <Card.Image 
+                  src={creation.image}
+                  alt={creation.title}
+                  aspectRatio="portrait"
+                  overlay
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+                  <h3 className="text-white text-xl font-serif font-medium">{creation.title}</h3>
+                </div>
+              </Card>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Section>
+
+      {/* Testimonials */}
+      <Section variant="light">
+        <Section.Header title="Client Testimonials" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <Card key={index} hoverable className="p-6">
+              <div className="flex text-accent-gold mb-2">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <span key={i}>★</span>
+                ))}
+              </div>
+              <p className="mb-4 text-gray-600">{testimonial.text}</p>
+              <p className="font-semibold">{testimonial.name}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
 
       {/* FAQs */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-8">Frequently Asked Questions</h2>
-          <div className="max-w-2xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border rounded-lg">
-                <button
-                  className="w-full px-6 py-4 text-left flex justify-between items-center"
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                >
-                  <span className="font-semibold">{faq.question}</span>
+      <Section>
+        <Section.Header title="Frequently Asked Questions" />
+        <div className="max-w-2xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <Card key={index} className="hover:border-accent-gold transition-colors duration-300 shadow-sm hover:shadow-md">
+              <button
+                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50 rounded-lg"
+                onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                aria-expanded={openFaq === index}
+                aria-controls={`faq-answer-${index}`}
+              >
+                <span className="font-semibold">{faq.question}</span>
+                <span className="text-accent-gold transition-transform duration-300 transform">
                   {openFaq === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </button>
-                {openFaq === index && (
-                  <div className="px-6 pb-4">
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+                </span>
+              </button>
+              {openFaq === index && (
+                <div 
+                  id={`faq-answer-${index}`}
+                  className="px-6 pb-4 animate-fadeIn"
+                >
+                  <p className="text-gray-600">{faq.answer}</p>
+                </div>
+              )}
+            </Card>
+          ))}
         </div>
-      </section>
+      </Section>
     </div>
   );
 }
