@@ -95,7 +95,7 @@ export function Footer() {
                 <button 
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-accent-gold hover:bg-accent-rose text-white px-8 rounded-r-full transition-all duration-500 transform hover:scale-105 focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px]"
+                  className="bg-gradient-gold hover:bg-accent-rose text-white px-8 rounded-r-full transition-all duration-500 transform hover:scale-105 focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px] shadow-gold"
                 >
                   {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : 'Subscribe'}
                 </button>

@@ -11,17 +11,17 @@ const customCreations = [
   {
     id: 1,
     title: 'Custom Bridal Lehenga',
-    image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80'
+    image: '/images/products/lehenga1.webp'
   },
   {
     id: 2,
     title: 'Personalized Saree',
-    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80'
+    image: '/images/products/saree1.webp'
   },
   {
     id: 3,
     title: 'Custom Fusion Wear',
-    image: 'https://images.unsplash.com/photo-1583391733956-6c77a55f56c9?w=800&q=80'
+    image: '/images/products/fusion1.webp'
   }
 ];
 
@@ -73,7 +73,7 @@ export function Custom() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-16">
+    <div className="min-h-screen bg-white pt-24"> {/* Adjusted padding to match Collections page */}
       <Section variant="light" className="py-12">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-4">Create Your Own Outfit</h1>
@@ -126,10 +126,10 @@ export function Custom() {
         <div className="text-center">
           <h2 className="text-3xl font-serif mb-8">Ready to Start Your Custom Journey?</h2>
           <div className="flex flex-col md:flex-row justify-center gap-6 max-w-2xl mx-auto">
-            <ExternalLinkButton href="tel:+1234567890" variant="outline" size="lg">
+            <ExternalLinkButton href="tel:+918369464126" variant="outline" size="lg">
               Call Now
             </ExternalLinkButton>
-            <ExternalLinkButton href="https://wa.me/1234567890" variant="outline" size="lg">
+            <ExternalLinkButton href="https://wa.me/8369464126" variant="outline" size="lg">
               WhatsApp
             </ExternalLinkButton>
             <ExternalLinkButton href="mailto:contact@dori.com" variant="outline" size="lg">
@@ -163,7 +163,7 @@ export function Custom() {
             <Card className="mt-6 max-w-md mx-auto animate-fadeIn">
               <Card.Body>
                 <p className="text-sm font-medium mb-2">Selected files:</p>
-                <div className="space-y-1">
+                <div className="space-y-1 max-h-40 overflow-y-auto"> {/* Added max height and scroll */}
                   {Array.from(selectedFiles).map((file, index) => (
                     <p key={index} className="text-sm text-gray-600">{file.name}</p>
                   ))}

@@ -9,37 +9,37 @@ const products = [
     id: 1,
     title: 'Embroidered Silk Saree',
     category: 'Sarees',
-    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80',
+    image: '/images/products/saree1.webp',
     description: 'Handcrafted silk saree with intricate embroidery work, perfect for special occasions.'
   },
   {
     id: 2,
     title: 'Bridal Lehenga',
     category: 'Lehengas',
-    image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80',
+    image: '/images/products/lehenga1.webp',
     description: 'Stunning bridal lehenga with detailed zari work and contemporary design elements.'
   },
   {
     id: 3,
     title: 'Designer Kurta Set',
     category: 'Kurtas',
-    image: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80',
+    image: '/images/products/kurta1.webp',
     description: 'Modern kurta set with traditional embellishments, suitable for festive occasions.'
   },
   {
     id: 4,
     title: 'Contemporary Fusion Dress',
     category: 'Fusion Wear',
-    image: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80',
+    image: '/images/products/fusion1.webp',
     description: 'Indo-western fusion dress combining traditional elements with modern silhouettes.'
   },
   {
     id: 5,
-    title: 'Bridal Dress',
-    category: 'Fusion Wear',
-    image: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80',
-    description: 'Indo-western fusion dress combining traditional elements with modern silhouettes.'
-  },// Add more products as needed
+    title: 'Bridal Fusion Ensemble',
+    category: 'Wedding & Festive Wear',
+    image: '/images/products/wedding1.webp',
+    description: 'Elegant bridal ensemble with contemporary design elements perfect for modern brides.'
+  }// Add more products as needed
 ];
 
 export function Collections() {
@@ -71,7 +71,7 @@ export function Collections() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-16">
+    <div className="min-h-screen bg-white pt-24">
       <section className="py-12 bg-secondary-light">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-4">Explore Our Collections</h1>
@@ -83,7 +83,7 @@ export function Collections() {
       </section>
 
       {/* Category Filters */}
-      <section className="sticky top-16 bg-white z-40 shadow-sm">
+      <section className="sticky top-24 bg-white z-40 shadow-sm">
         <div className="container mx-auto px-6 py-4 overflow-x-auto">
           <div className="flex space-x-4 min-w-max">
             {categories.map((category) => (
@@ -134,7 +134,7 @@ export function Collections() {
       {/* Product Details Modal */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
             <div className="relative">
               <img
                 src={selectedProduct.image}
@@ -143,12 +143,13 @@ export function Collections() {
               />
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 bg-white rounded-full p-2"
+                className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
+                aria-label="Close modal"
               >
                 ×
               </button>
             </div>
-            <div className="p-6">
+            <div className="p-6 md:p-8">
               <h2 className="text-2xl font-serif mb-2">{selectedProduct.title}</h2>
               <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
               <p className="text-sm text-primary mb-4">Available for Custom Orders via Call</p>

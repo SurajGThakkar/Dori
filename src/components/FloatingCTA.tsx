@@ -49,8 +49,8 @@ export function FloatingCTA() {
   const commonClassNames = `
     fixed bottom-6 left-1/2 -translate-x-1/2 z-40
     md:bottom-8 md:left-auto md:right-8 md:translate-x-0
-    bg-accent-gold hover:bg-accent-rose text-white
-    px-8 py-3 rounded-full shadow-lg
+    bg-gradient-gold hover:bg-accent-rose text-white
+    px-12 py-3 rounded-full shadow-gold
     transition-all duration-500 transform
     hover:scale-105 hover:shadow-xl
     backdrop-blur-sm bg-opacity-90 font-medium

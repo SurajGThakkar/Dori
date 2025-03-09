@@ -8,10 +8,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const categories = [
-  { title: 'Sarees', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80' },
-  { title: 'Lehengas', image: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&q=80' },
-  { title: 'Kurtas', image: 'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=800&q=80' },
-  { title: 'Fusion Wear', image: 'https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=800&q=80' }
+  { title: 'Sarees', image: '/images/products/saree1.webp' },
+  { title: 'Lehengas', image: '/images/products/lehenga1.webp' },
+  { title: 'Kurtas', image: '/images/products/kurta1.webp' },
+  { title: 'Fusion Wear', image: '/images/products/fusion1.webp' }
 ];
 
 const testimonials = [
@@ -22,13 +22,15 @@ const testimonials = [
 
 export function Home() {
   return (
-    <div className="min-h-screen bg-white pt-16">
+    <div className="min-h-screen bg-white pt-27">
       {/* Hero Section */}
       <section className="relative h-screen">
         <img 
-          src="https://images.unsplash.com/photo-1735852134868-c7986018d27d?w=1600&h=900&fit=crop&q=85" 
+          src="/images/hero/hero-banner.jpeg" 
           alt="Traditional Indian Fashion"
           className="w-full h-full object-cover object-center brightness-90"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center text-center px-4">
           <div>
@@ -66,7 +68,7 @@ export function Home() {
               <SwiperSlide key={index}>
                 <Link to={`/collections?category=${category.title.toLowerCase()}`}>
                   <div className="relative rounded-lg overflow-hidden aspect-[3/4]">
-                    <img src={category.image} alt={category.title} className="w-full h-full object-cover" />
+                    <img src={category.image} alt={category.title} className="w-full h-full object-cover" loading="lazy" width="800" height="1067" />
                     <div className="absolute inset-0 bg-secondary-overlay flex items-end p-4">
                       <h3 className="text-white text-xl font-serif font-medium">{category.title}</h3>
                     </div>

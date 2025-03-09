@@ -31,7 +31,7 @@ export function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-white pt-16">
+    <div className="min-h-screen bg-white pt-25">
       {/* Hero Section */}
       <Section variant="light" className="py-12">
         <div className="text-center">
@@ -52,7 +52,7 @@ export function Contact() {
         <div className="text-center">
           <a
             href="https://wa.me/918369464126"
-            className="inline-block bg-accent-gold hover:bg-accent-rose text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 font-medium"
+            className="inline-block bg-accent-gold hover:bg-accent-rose text-white px-12 py-3 rounded-full transition-all duration-300 transform hover:scale-105 font-medium"
           >
             Schedule Now
           </a>

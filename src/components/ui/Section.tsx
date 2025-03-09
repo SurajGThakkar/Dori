@@ -22,8 +22,8 @@ export function Section({
 }: SectionProps) {
   const variantClasses = {
     default: 'bg-white',
-    light: 'bg-secondary-light',
-    dark: 'bg-primary text-white',
+    light: 'bg-gradient-light',
+    dark: 'bg-gradient-primary text-white',
   };
 
   const content = withContainer ? (

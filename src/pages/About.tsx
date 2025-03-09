@@ -7,19 +7,19 @@ const teamMembers = [
     name: 'Riya Doshi',
     role: 'Founder & Creative Director',
     bio: 'With over 15 years of experience in fashion design, Priya brings her vision of blending traditional craftsmanship with modern aesthetics.',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop'
   },
   {
     name: 'Suraj Thakkar',
     role: 'Head of Design',
     bio: 'A graduate from NIFT with a passion for sustainable fashion and innovative design solutions.',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop'
   },
   {
     name: 'Anita Dongre',
     role: 'Master Artisan',
     bio: 'With decades of experience in traditional embroidery and textile work, Anita leads our skilled artisan team.',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop'
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop'
   }
 ];
 
@@ -75,7 +75,7 @@ export function About() {
   const [openLegal, setOpenLegal] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-white pt-16">
+    <div className="min-h-screen bg-white pt-24">
       {/* Hero Section */}
       <Section variant="light" className="py-12">
         <div className="text-center">
@@ -105,7 +105,7 @@ export function About() {
             </div>
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=80"
+                src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=800&q=80"
                 alt="Behind the scenes at Dori"
                 className="w-full h-full object-cover"
               />

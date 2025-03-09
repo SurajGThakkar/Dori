@@ -10,8 +10,8 @@ export function Card({ children, className = '', hoverable = false }: CardProps)
   return (
     <div 
       className={`
-        bg-white rounded-lg shadow-sm overflow-hidden
-        ${hoverable ? 'transition-all duration-300 hover:shadow-lg hover:-translate-y-1' : ''}
+        bg-white rounded-lg shadow-soft overflow-hidden
+        ${hoverable ? 'transition-all duration-300 hover:shadow-xl hover:-translate-y-1' : ''}
         ${className}
       `}
     >
