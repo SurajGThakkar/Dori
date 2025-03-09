@@ -47,6 +47,30 @@ export function Collections() {
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'All');
   const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  
+  // Function to handle WhatsApp customization request
+  const handleCustomizationRequest = (product: typeof products[0]) => {
+    // Create a personalized message with product details
+    const message = `Dear Dori Design Team,
+
+I'm writing to inquire about customization options for the "${product.title}" from your ${product.category} collection.
+
+What I appreciate about this design:
+• ${product.description}
+
+I would like to discuss potential customization possibilities, including fabric options, color variations, and any design modifications that might be possible.
+
+Looking forward to your professional guidance.
+
+Thank you,
+A Potential Customer`;
+    
+    // Create WhatsApp URL with the message
+    const whatsappUrl = `https://wa.me/918369464126?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -152,8 +176,11 @@ export function Collections() {
             <div className="p-6 md:p-8">
               <h2 className="text-2xl font-serif mb-2">{selectedProduct.title}</h2>
               <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
-              <p className="text-sm text-primary mb-4">Available for Custom Orders via Call</p>
-              <button className="w-full bg-primary text-white py-3 rounded-full hover:bg-primary-dark transition-colors">
+              <p className="text-sm text-primary mb-4">Available for Custom Orders via WhatsApp</p>
+              <button 
+                onClick={() => handleCustomizationRequest(selectedProduct)}
+                className="w-full bg-primary text-white py-3 rounded-full hover:bg-primary-dark transition-colors"
+              >
                 Request Customization
               </button>
             </div>

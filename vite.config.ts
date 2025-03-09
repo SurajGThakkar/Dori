@@ -14,9 +14,13 @@ export default defineConfig({
   assetsInclude: ['**/*.webp'],
   build: {
     assetsInlineLimit: 0,
+    outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name].[ext]'
+        assetFileNames: 'assets/[name].[ext]',
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js'
       }
     }
   }

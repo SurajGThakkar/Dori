@@ -129,7 +129,7 @@ export function Custom() {
             <ExternalLinkButton href="tel:+918369464126" variant="outline" size="lg">
               Call Now
             </ExternalLinkButton>
-            <ExternalLinkButton href="https://wa.me/8369464126" variant="outline" size="lg">
+            <ExternalLinkButton href="https://wa.me/8369464126?text=Dear%20Dori%20Design%20Team%2C%0A%0AI'm%20interested%20in%20scheduling%20a%20consultation%20for%20a%20custom%20outfit.%20I%20would%20appreciate%20your%20guidance%20on%20the%20customization%20process%20and%20would%20like%20to%20discuss%20my%20requirements%20in%20detail.%0A%0ALooking%20forward%20to%20your%20response.%0A%0AThank%20you%2C%0AA%20Potential%20Customer" variant="outline" size="lg">
               WhatsApp
             </ExternalLinkButton>
             <ExternalLinkButton href="mailto:contact@dori.com" variant="outline" size="lg">

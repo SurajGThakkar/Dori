@@ -50,11 +50,13 @@ export function FloatingCTA() {
     fixed bottom-6 left-1/2 -translate-x-1/2 z-40
     md:bottom-8 md:left-auto md:right-8 md:translate-x-0
     bg-gradient-gold hover:bg-accent-rose text-white
-    px-12 py-3 rounded-full shadow-gold
+    px-4 sm:px-6 md:px-12 py-3 rounded-full shadow-gold
     transition-all duration-500 transform
     hover:scale-105 hover:shadow-xl
     backdrop-blur-sm bg-opacity-90 font-medium
     focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-offset-2
+    whitespace-nowrap overflow-hidden text-ellipsis max-w-[90vw] md:max-w-none
+    text-sm sm:text-base md:text-base
     ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0 pointer-events-none'}
   `;
 
