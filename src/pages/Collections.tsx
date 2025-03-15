@@ -158,7 +158,7 @@ A Potential Customer`;
       {/* Product Details Modal */}
       {selectedProduct && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-50"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black bg-opacity-50"
           onClick={() => setSelectedProduct(null)}
         >
           <div 
@@ -172,15 +172,15 @@ A Potential Customer`;
             >
               ×
             </button>
-            {/* Image container - responsive width based on screen size */}
-            <div className="relative sm:w-1/2">
+            {/* Image container - improved responsive sizing */}
+            <div className="sm:w-1/2 h-56 sm:h-auto">
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
-                className="w-full h-48 sm:h-full object-cover sm:rounded-l-lg sm:rounded-tr-none rounded-t-lg"
+                className="w-full h-full object-cover object-center sm:rounded-l-lg sm:rounded-tr-none rounded-t-lg"
               />
             </div>
-            {/* Content container - responsive width and padding */}
+            {/* Content container - improved responsive layout */}
             <div className="p-4 sm:p-5 md:p-6 sm:w-1/2 flex flex-col justify-between overflow-y-auto">
               <div>
                 <h2 className="text-xl sm:text-2xl font-serif mb-1 sm:mb-2">{selectedProduct.title}</h2>
@@ -189,7 +189,7 @@ A Potential Customer`;
               </div>
               <button 
                 onClick={() => handleCustomizationRequest(selectedProduct)}
-                className="w-full bg-primary text-white py-2 sm:py-3 rounded-full hover:bg-primary-dark transition-colors text-sm sm:text-base"
+                className="w-full bg-primary text-white py-2 sm:py-3 rounded-full hover:bg-primary-dark transition-colors text-sm sm:text-base mt-2"
               >
                 Request Customization
               </button>
