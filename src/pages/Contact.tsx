@@ -31,7 +31,7 @@ export function Contact() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="min-h-screen bg-white pt-25">
+    <div className="min-h-screen bg-white pt-24">
       {/* Hero Section */}
       <Section variant="light" className="py-12">
         <div className="text-center">

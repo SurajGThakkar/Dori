@@ -22,7 +22,7 @@ const testimonials = [
 
 export function Home() {
   return (
-    <div className="min-h-screen bg-white pt-27">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen">
         <img 
