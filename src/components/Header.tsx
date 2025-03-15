@@ -130,7 +130,7 @@ export function Header() {
           <button 
             ref={buttonRef}
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="text-primary-dark hover:text-accent-gold transition-all duration-300 transform hover:rotate-180 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50 rounded-full p-1"
+            className="text-primary-dark hover:text-accent-gold transition-all duration-300 transform hover:rotate-180 focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50 rounded-full p-1 md:hidden"
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
           >
@@ -145,7 +145,7 @@ export function Header() {
           ref={menuRef}
           className="absolute top-full left-0 right-0 backdrop-blur-lg bg-white/90 shadow-lg animate-fadeIn md:hidden"
         >
-          <ul className="container mx-auto px-4 py-6 space-y-4 font-poppins">
+          <ul className="container mx-auto px-4 py-6 space-y-4 font-poppins text-right">
             <li>
               <Link 
                 to="/" 
