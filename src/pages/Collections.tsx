@@ -162,7 +162,7 @@ A Potential Customer`;
           onClick={() => setSelectedProduct(null)}
         >
           <div 
-            className="bg-white rounded-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl flex flex-col sm:flex-row h-auto max-h-[90vh] sm:max-h-[80vh] overflow-hidden relative"
+            className="bg-white rounded-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl flex flex-col sm:flex-row h-auto max-h-[85vh] sm:max-h-[80vh] md:max-h-[75vh] lg:max-h-[70vh] overflow-hidden relative"
             onClick={(e) => e.stopPropagation()}
           >
             <button
