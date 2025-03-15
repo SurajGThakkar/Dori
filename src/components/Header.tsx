@@ -86,31 +86,36 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-6 font-poppins">
             <Link 
               to="/" 
-              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/' ? 'text-accent-gold font-medium' : ''}`}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               Home
             </Link>
             <Link 
               to="/collections" 
-              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/collections' ? 'text-accent-gold font-medium' : ''}`}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               Collections
             </Link>
             <Link 
               to="/custom" 
-              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/custom' ? 'text-accent-gold font-medium' : ''}`}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               Customization
             </Link>
             <Link 
               to="/about" 
-              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/about' ? 'text-accent-gold font-medium' : ''}`}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               About Us
             </Link>
             <Link 
               to="/contact" 
-              className="text-primary-dark hover:text-accent-gold transition-all duration-300"
+              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/contact' ? 'text-accent-gold font-medium' : ''}`}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               Contact
             </Link>
@@ -144,8 +149,11 @@ export function Header() {
             <li>
               <Link 
                 to="/" 
-                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold ${location.pathname === '/' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 Home
               </Link>
@@ -153,8 +161,11 @@ export function Header() {
             <li>
               <Link 
                 to="/collections" 
-                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold ${location.pathname === '/collections' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 Collections
               </Link>
@@ -162,8 +173,11 @@ export function Header() {
             <li>
               <Link 
                 to="/custom" 
-                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold ${location.pathname === '/custom' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 Customization
               </Link>
@@ -171,8 +185,11 @@ export function Header() {
             <li>
               <Link 
                 to="/about" 
-                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold ${location.pathname === '/about' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 About Us
               </Link>
@@ -180,8 +197,11 @@ export function Header() {
             <li>
               <Link 
                 to="/contact" 
-                className="block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold"
-                onClick={() => setIsMenuOpen(false)}
+                className={`block text-base text-primary-dark hover:text-accent-gold transition-all duration-300 hover:translate-x-2 focus:outline-none focus:text-accent-gold ${location.pathname === '/contact' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
               >
                 Contact
               </Link>
