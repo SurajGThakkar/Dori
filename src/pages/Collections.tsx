@@ -173,7 +173,7 @@ A Potential Customer`;
               ×
             </button>
             {/* Image container - improved responsive sizing */}
-            <div className="sm:w-1/2 h-64 sm:h-auto">
+            <div className="sm:w-1/2 h-96 sm:h-auto">
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
