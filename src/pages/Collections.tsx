@@ -157,29 +157,39 @@ A Potential Customer`;
 
       {/* Product Details Modal */}
       {selectedProduct && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="relative">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black bg-opacity-50"
+          onClick={() => setSelectedProduct(null)}
+        >
+          <div 
+            className="bg-white rounded-lg w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl flex flex-col sm:flex-row h-auto max-h-[90vh] sm:max-h-[80vh] overflow-hidden relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedProduct(null)}
+              className="absolute top-2 right-2 z-10 bg-white rounded-full p-1.5 sm:p-2 shadow-md hover:bg-gray-100 transition-colors text-xl"
+              aria-label="Close modal"
+            >
+              ×
+            </button>
+            {/* Image container - responsive width based on screen size */}
+            <div className="relative sm:w-1/2">
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
-                className="w-full aspect-[3/4] object-cover rounded-t-lg"
+                className="w-full h-48 sm:h-full object-cover sm:rounded-l-lg sm:rounded-tr-none rounded-t-lg"
               />
-              <button
-                onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
-                aria-label="Close modal"
-              >
-                ×
-              </button>
             </div>
-            <div className="p-6 md:p-8">
-              <h2 className="text-2xl font-serif mb-2">{selectedProduct.title}</h2>
-              <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
-              <p className="text-sm text-primary mb-4">Available for Custom Orders via WhatsApp</p>
+            {/* Content container - responsive width and padding */}
+            <div className="p-4 sm:p-5 md:p-6 sm:w-1/2 flex flex-col justify-between overflow-y-auto">
+              <div>
+                <h2 className="text-xl sm:text-2xl font-serif mb-1 sm:mb-2">{selectedProduct.title}</h2>
+                <p className="text-gray-600 text-sm sm:text-base mb-2 sm:mb-4">{selectedProduct.description}</p>
+                <p className="text-xs sm:text-sm text-primary mb-2 sm:mb-4">Available for Custom Orders via WhatsApp</p>
+              </div>
               <button 
                 onClick={() => handleCustomizationRequest(selectedProduct)}
-                className="w-full bg-primary text-white py-3 rounded-full hover:bg-primary-dark transition-colors"
+                className="w-full bg-primary text-white py-2 sm:py-3 rounded-full hover:bg-primary-dark transition-colors text-sm sm:text-base"
               >
                 Request Customization
               </button>
