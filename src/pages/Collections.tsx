@@ -173,7 +173,7 @@ A Potential Customer`;
               ×
             </button>
             {/* Image container - improved responsive sizing */}
-            <div className="sm:w-1/2 h-56 sm:h-auto">
+            <div className="sm:w-1/2 h-64 sm:h-auto">
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
@@ -189,7 +189,7 @@ A Potential Customer`;
               </div>
               <button 
                 onClick={() => handleCustomizationRequest(selectedProduct)}
-                className="w-full bg-primary text-white py-2 sm:py-3 rounded-full hover:bg-primary-dark transition-colors text-sm sm:text-base mt-2"
+                className="w-full bg-primary text-white py-2 sm:py-3 rounded-full hover:bg-primary-dark transition-colors text-sm sm:text-base mt-3"
               >
                 Request Customization
               </button>
