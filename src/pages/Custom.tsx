@@ -156,9 +156,10 @@ export function Custom() {
             />
             <div className="cursor-pointer inline-flex items-center gap-2">
               <Button variant="secondary">
-              <Upload size={20} />
-              Upload Reference Images
-            </Button>
+                <Upload size={20} />
+                Upload Reference Images
+              </Button>
+            </div>
           </label>
           {selectedFiles && (
             <Card className="mt-6 max-w-md mx-auto animate-fadeIn">
