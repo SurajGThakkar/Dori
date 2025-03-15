@@ -73,7 +73,7 @@ export function Custom() {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24"> {/* Adjusted padding to match Collections page */}
+    <div className="min-h-screen bg-white pt-24">
       <Section variant="light" className="py-12">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-4">Create Your Own Outfit</h1>

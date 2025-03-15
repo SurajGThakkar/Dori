@@ -95,7 +95,7 @@ A Potential Customer`;
   };
 
   return (
-    <div className="min-h-screen bg-white pt-24">
+    <div className="min-h-screen bg-white">
       <section className="py-12 bg-secondary-light">
         <div className="container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-serif mb-4">Explore Our Collections</h1>
