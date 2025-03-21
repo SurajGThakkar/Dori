@@ -1,0 +1,85 @@
+version: '3.8'
+
+services:
+  # Nginx load balancer
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./dist:/usr/share/nginx/html:ro
+    depends_on:
+      - app1
+      - app2
+      - app3
+    networks:
+      - dori-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Application servers
+  app1:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm ci && npm run build && npm run preview -- --port 3001 --host"
+    expose:
+      - "3001"
+    networks:
+      - dori-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  app2:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm ci && npm run build && npm run preview -- --port 3002 --host"
+    expose:
+      - "3002"
+    networks:
+      - dori-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  app3:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm ci && npm run build && npm run preview -- --port 3003 --host"
+    expose:
+      - "3003"
+    networks:
+      - dori-network
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+networks:
+  dori-network:
+    driver: bridge
