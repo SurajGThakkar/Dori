@@ -82,48 +82,50 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-6">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6 font-poppins">
-            <Link 
-              to="/" 
-              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/' ? 'text-accent-gold font-medium' : ''}`}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              Home
-            </Link>
-            <Link 
-              to="/collections" 
-              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/collections' ? 'text-accent-gold font-medium' : ''}`}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              Collections
-            </Link>
-            <Link 
-              to="/custom" 
-              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/custom' ? 'text-accent-gold font-medium' : ''}`}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              Customization
-            </Link>
-            <Link 
-              to="/about" 
-              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/about' ? 'text-accent-gold font-medium' : ''}`}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              About Us
-            </Link>
-            <Link 
-              to="/contact" 
-              className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/contact' ? 'text-accent-gold font-medium' : ''}`}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            >
-              Contact
-            </Link>
+          {/* Desktop Navigation - Fixed width container */}
+          <div className="hidden md:flex items-center font-poppins" style={{ width: '500px' }}>
+            <div className="flex items-start space-x-6">
+              <Link 
+                to="/" 
+                className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/collections" 
+                className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/collections' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                Collections
+              </Link>
+              <Link 
+                to="/custom" 
+                className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/custom' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                Customization
+              </Link>
+              <Link 
+                to="/about" 
+                className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/about' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                About Us
+              </Link>
+              <Link 
+                to="/contact" 
+                className={`text-primary-dark hover:text-accent-gold transition-all duration-300 ${location.pathname === '/contact' ? 'text-accent-gold font-medium' : ''}`}
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              >
+                Contact
+              </Link>
+            </div>
           </div>
           
           <Link
             to={location.pathname === '/custom' ? '/contact' : '/custom'}
-            className="hidden md:block bg-accent-gold hover:bg-accent-rose text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50"
+            className="hidden md:block bg-accent-gold hover:bg-accent-rose text-white px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-gold focus:ring-opacity-50 whitespace-nowrap"
           >
             {getCtaText()}
           </Link>
